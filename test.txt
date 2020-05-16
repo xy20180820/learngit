@@ -1,0 +1,68 @@
+from functools import wraps
+from flask import make_response
+一：
+@app.route('/result', methods=['GET', 'POST'])
+def index():
+    file_object = open('/home/pyspark_project/pyspark_output_result.json')
+    try:
+        result_text = file_object.read()
+    finally:
+        file_object.close()
+    #
+    rst = make_response(result_text)
+    rst.headers['Access-Control-Allow-Origin'] = '*'
+    # rst.headers['Access-Control-Allow-Methods'] = 'PUT,GET,POST,DELETE'
+    # allow_headers = "Referer,Accept,Origin,User-Agent"
+    # rst.headers['Access-Control-Allow-Headers'] = allow_headers
+    return rst, 201
+    #return result_text, 201 #, {'Content-Type': 'application/json'}
+
+二：
+@app.route('/articles_list/contents/')
+def json_contents():
+    response = make_response(jsonify(response=get_articles(ARTICLES_NAME)))
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'POST'
+    response.headers['Access-Control-Allow-Headers'] = 'x-requested-with,content-type' 
+    return response
+————————————————
+版权声明：本文为CSDN博主「www.thutmose.cn」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/lovebyz/article/details/52584551
+Bearer eyJhbGciOiJIUzUxMiIsImV4cCI6MTU4NzQ5MDcyMywiaWF0IjoxNTg3NDg4OTIzfQ.eyJ1c2VybmFtZSI6ImFkbWluIn0.ViIMvi_r3L2Tl8l_z-gQZROC2tZnTbyNFmdm45OhpDSw0qQT9E895z4wdQifxXCUmoLDtPLRKEW9RDD_25xuow
+
+Bearer eyJhbGciOiJIUzUxMiIsImV4cCI6MTU4NzQ5MDk0OSwiaWF0IjoxNTg3NDg5MTQ5fQ.eyJ1c2VybmFtZSI6ImFkbWluIn0.qdfudYD6aPkiofekzuQseDmOKeeEu66zRlPGVOLD6jEGFP6O_A33xXxPik40UkIvctQuBA1p22-Xt7l2WXFrwg
+
+Bearer eyJhbGciOiJIUzUxMiIsImV4cCI6MTU4NzQ5MDk0OSwiaWF0IjoxNTg3NDg5MTQ5fQ.eyJ1c2VybmFtZSI6ImFkbWluIn0.qdfudYD6aPkiofekzuQseDmOKeeEu66zRlPGVOLD6jEGFP6O_A33xXxPik40UkIvctQuBA1p22-Xt7l2WXFrwg
+
+Bearer eyJhbGciOiJIUzUxMiIsImV4cCI6MTU4NzQ5MTE5NywiaWF0IjoxNTg3NDg5Mzk3fQ.eyJ1c2VybmFtZSI6ImFkbWluIn0.E9ZvTCnM8HkT3AysZ2OXPDVSX9ChkjU_TaefOyRFrPiDJWpEzJoBBwlkuZtM9Q5OG26SS9C7QWz9OGM_tgPuaw
+
+pip2 install flask_sqlalchemy -i http://mirrors.aliyun.com/pypi/simple/
+
+pip2 install flask-mysqldb  -i http://mirrors.aliyun.com/pypi/simple/
+pip2 install wheel  -i http://mirrors.aliyun.com/pypi/simple/
+
+pip2 install mysqlclient  -i http://mirrors.aliyun.com/pypi/simple/
+
+pip2 install flask-mysqldb -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+‪pip2 install D:\software\02python2714\mypython\flask\mysqlclient-1.4.6-cp27-cp27m-win_amd64.whl
+CREATE DATABASE IF NOT EXISTS flask_db1 DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+
+
+{'Connection': 'keep-alive', 'Accept-Encoding': 
+'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.22.0'}
+
+http://localhost:63342/flask/test_demo01/report/report0050/index.html?_ijt=fd8vm4ag2lbj4gvte6amu939ei#
+file:///D:/software/02python2714/mypython/flask/test_demo01/report/report0050/index.html
+
+
+usr_list[name] = {'passwd':chr(d_data['passwd']), 'age':chr(d_data['age']), 'tel':chr(_data['tel'])}
+
+
+assert_equal(ss,res_result,msg=u'预期结果错误%s'%res_result)
+
+
+res：
+u'{\n  "data": {\n    "admin": {\n      "age": 18, \n     "passwd": "admin", \n     "tel": "15899870001"\n    }, \n   "lily": {\n      "age": "16", \n      "passwd": "123456", \n      "tel": "15899881000"\n    }\n  }\n}\n'
+expect：
+u'{\n  "data": {\n    "admin": {\n      "age": 18,\n      "passwd": "admin",\n      "tel": "15899870001"\n    },\n    "lily": {\n      "age": "16",\n      "passwd": "123456",\n      "tel": "15899881000"\n    }\n  }\n}'
